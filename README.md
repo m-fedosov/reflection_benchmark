@@ -27,9 +27,9 @@
     - `methodHandles()`: вызов метода через `MethodHandle`.
     - `lambdaMetafactory()`: вызов метода через `LambdaMetafactory`.
 
-| Benchmark                                   | Mode | Cnt | Score | Error | Units  |
-|---------------------------------------------|------|-----|-------|-------|--------|
-| ReflectionBenchmark.directAccess            | avgt | 0   | 0.633 |       | ns/op  |
-| ReflectionBenchmark.lambdaMetafactoryAccess | avgt | 0   | 0.811 |       | ns/op  |
-| ReflectionBenchmark.methodHandlesAccess     | avgt | 0   | 3.221 |       | ns/op  |
-| ReflectionBenchmark.reflectionAccess        | avgt | 0   | 5.888 |       | ns/op  |
+| Benchmark                                   | Score | Units  |
+|---------------------------------------------|-------|--------|
+| ReflectionBenchmark.directAccess            | 0.633 | ns/op  |
+| ReflectionBenchmark.lambdaMetafactoryAccess | 0.811 | ns/op  |
+| ReflectionBenchmark.methodHandlesAccess     | 3.221 | ns/op  |
+| ReflectionBenchmark.reflectionAccess        | 5.888 | ns/op  |
