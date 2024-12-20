@@ -31,6 +31,7 @@ import org.openjdk.jmh.runner.options.TimeValue;
  * The goal is to measure performance differences and assess their suitability for different use cases.
  */
 @State(Scope.Thread) // isolation between benchmark iterations
+@SuppressWarnings({"UncommentedMain", "MagicNumber"})
 public class ReflectionBenchmark {
     public static void main(String[] args) throws RunnerException {
         Options options = new OptionsBuilder()
@@ -49,14 +50,6 @@ public class ReflectionBenchmark {
 
         new Runner(options).run();
     }
-
-    // Record used for testing simple method access scenarios
-    record MamkinProgrammist(String name) { }
-
-    private MamkinProgrammist mamkinProgrammist; // Object under test
-    private Method method;                       // Reflection-based method access
-    private MethodHandle methodHandle;           // MethodHandles-based access
-    private Callable<String> lambda;             // LambdaMetafactory-based callable
 
     @Setup // Initialization before benchmarks run
     public void setup() throws Throwable {
@@ -103,5 +96,15 @@ public class ReflectionBenchmark {
     public void lambdaMetafactoryAccess(Blackhole bh) throws Exception {
         String name = lambda.call();
         bh.consume(name);
+    }
+
+    private MamkinProgrammist mamkinProgrammist; // Object under test
+    private Method method;                       // Reflection-based method access
+    private MethodHandle methodHandle;           // MethodHandles-based access
+    private Callable<String> lambda;             // LambdaMetafactory-based callable
+
+    // Record used for testing simple method access scenarios
+    record MamkinProgrammist(String name) {
+
     }
 }
